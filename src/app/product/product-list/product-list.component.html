@@ -1,0 +1,39 @@
+<nav class="product-filter">
+
+  <div class="sort">
+
+    <div class="collection-sort-view">
+      <div class="gridView">
+        <img class="img gridIcon" src="../../../assets/gridView.svg" alt="gridIcon"/>
+      </div>
+      <div class="listView">
+        <img class="img listIcon" src="../../../assets/listView.svg"/>
+      </div>
+    </div>
+
+    <div class="collection-sort">
+      <select>
+        <option value="/">Low to High</option>
+      </select>
+    </div>
+
+  </div>
+
+</nav>
+<section class="list">
+  <ul class="cards">
+    <li class="cards__item" *ngFor="let prods of productList$ | async">
+      <div class="product__card">
+        <div class="product__image" [ngStyle]="{'background-image': 'url(' + prods.image + ')'}"></div>
+        <div class="product__info">
+          <div class="prod__title">{{prods.title }}</div>
+          <button class="btn btn--block card__btn mt-auto">{{ prods.price }}</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="listiew hide">
+
+  </div>
+</section>

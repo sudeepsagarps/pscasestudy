@@ -1,0 +1,15 @@
+#routes {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+  column-gap: 30px;
+}
+
+button.routesBtn {
+  min-width: 150px;
+  margin: 10px;
+  padding: 10px;
+}
