@@ -11,7 +11,9 @@ export class ProductService {
 
   fetchProductList(): Observable<any> {
     const url = 'https://fakestoreapi.com/products';
-    return this.http.get<any>(url);
+    return this.http.get<any>(url).pipe(
+      shareReplay({ bufferSize: 1, refCount: true })
+    );
     // response.subscribe(data => {
     //   return data;
     // });
