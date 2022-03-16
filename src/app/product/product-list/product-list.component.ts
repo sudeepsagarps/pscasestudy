@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map } from 'rxjs';
 import { ProductService } from '../service/product.service';
 
 @Component({

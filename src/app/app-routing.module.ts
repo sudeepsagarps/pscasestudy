@@ -14,6 +14,11 @@ const routes: Routes = [
       import('./product/product.module').then((x) => x.ProductModule),
   },
   {
+    path: 'counter',
+    loadChildren: () =>
+      import('./counter/counter.module').then((x) => x.CounterModule),
+  },
+  {
     path: '',
     redirectTo: '/banners',
     pathMatch: 'full'

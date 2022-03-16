@@ -1,0 +1,16 @@
+<div class="setTimer">
+  <label class="p-2">Enter Timer limit</label>
+  <input class="inputLimit" type="number" [(ngModel)]="counter" />
+  <div class="d-grid gap-2 d-md-block text-end">
+    <button type="button" class="btn btn-primary" (click)="toggleLimit()">Start/Pause</button>
+    <button class="btn btn-secondary" type="reset" (click)="reset()">Reset</button>
+  </div>
+
+  <ng-container *ngIf="pauseAtList?.length > 0">
+    <div class="pauseStats text-start" *ngFor="let item of pauseAtList">
+      <label>Paused at
+        <span>{{ item }}</span>
+      </label>
+    </div>
+  </ng-container>
+</div>
