@@ -1,0 +1,5 @@
+<div class="pauseStats text-start" *ngFor="let item of currDateTime | async">
+  <label>{{ item.label }}
+    <span>{{ item.value | date:'dd-MM-yyyy h:mm:ss a' }}</span>
+  </label>
+</div>

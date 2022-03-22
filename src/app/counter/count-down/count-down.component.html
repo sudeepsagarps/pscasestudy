@@ -3,14 +3,14 @@
     <div class="countDownTimer m-1 p-2">
       <div class="counter">
         <label> Count Down Timer</label>
-        <p>{{counterValue}}</p>
+        <p>{{ liveCounterValue }}</p>
       </div>
     </div>
 
     <div class="inputTimer m-1 p-2">
       <app-timer (counterValue)="setLimitValue($event)" (pauseStatus)="setPauseStatus($event)"
-        (startCountClick)="setStartCount($event)" (pauseCountClick)="setPauseCount($event)" (logCurrDateTime)="logDateTime($event)"
-        [pauseAtList]="pausedAtCounter"></app-timer>
+        (startCountClick)="setStartCount($event)" (pauseCountClick)="setPauseCount($event)"
+        (logCurrDateTime)="logDateTime($event)" [pauseAtList]="pausedAtCounter"></app-timer>
     </div>
   </div>
 

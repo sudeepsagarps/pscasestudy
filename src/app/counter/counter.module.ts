@@ -8,18 +8,13 @@ import { LoggerComponent } from './logger/logger.component';
 import { ClickCounterComponent } from './click-counter/click-counter.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     CountDownComponent,
     TimerComponent,
     LoggerComponent,
-    ClickCounterComponent
+    ClickCounterComponent,
   ],
-  imports: [
-    CommonModule,
-    CounterRoutingModule,
-    FormsModule
-  ]
+  imports: [CommonModule, CounterRoutingModule, FormsModule],
 })
-export class CounterModule { }
+export class CounterModule {}

@@ -7,11 +7,9 @@
     <button class="btn btn-secondary" type="reset" [disabled]="!counterVal.value" (click)="reset()">Reset</button>
   </div>
 
-  <ng-container *ngIf="pauseAtList?.length > 0">
-    <div class="pauseStats text-start" *ngFor="let item of pauseAtList">
-      <label>Paused at
-        <span>{{ item }}</span>
-      </label>
-    </div>
-  </ng-container>
+  <div class="pauseStats text-start" *ngFor="let item of pausedAtList | async">
+    <label>Paused at
+      <span>{{ item }}</span>
+    </label>
+  </div>
 </div>

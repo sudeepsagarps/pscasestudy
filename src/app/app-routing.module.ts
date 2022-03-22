@@ -19,14 +19,28 @@ const routes: Routes = [
       import('./counter/counter.module').then((x) => x.CounterModule),
   },
   {
+    path: 'counterserv',
+    loadChildren: () =>
+      import('./counter-serv/counter-serv.module').then(
+        (x) => x.CounterServModule
+      ),
+  },
+  {
+    path: 'students-msheet',
+    loadChildren: () =>
+      import('./students/students.module').then(
+        (x) => x.StudentsModule
+      ),
+  },
+  {
     path: '',
     redirectTo: '/banners',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: '**',
-    component: ErrorComponent
-  }
+    component: ErrorComponent,
+  },
 ];
 
 @NgModule({

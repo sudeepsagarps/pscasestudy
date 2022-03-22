@@ -1,7 +1,7 @@
 <ng-container *ngIf="currDateTime?.length > 0">
   <div class="pauseStats text-start" *ngFor="let item of currDateTime">
     <label>{{ item.label }}
-    <span>{{ item.value | date:'dd-MM-yyyy h:mm:ss a' }}</span>
-  </label>
+      <span>{{ item.value | date:'dd-MM-yyyy h:mm:ss a' }}</span>
+    </label>
   </div>
 </ng-container>

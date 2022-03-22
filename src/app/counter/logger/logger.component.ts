@@ -9,7 +9,8 @@ export class LoggerComponent implements OnInit {
 
   @Input() currDateTime: any;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

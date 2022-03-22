@@ -1,0 +1,20 @@
+.container {
+  border: 1px solid #333;
+}
+
+.countDownTimer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.countDownTimer,
+.inputTimer {
+  border: 1px solid #333;
+  flex: 0 0 calc(50% - 10px);
+}
+
+.logger,
+.clickCount {
+  flex: 0 0 calc(50% - 10px);
+}

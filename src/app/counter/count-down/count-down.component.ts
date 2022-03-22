@@ -1,5 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-count-down',
@@ -7,7 +6,6 @@ import { Subject, Subscription } from 'rxjs';
   styleUrls: ['./count-down.component.scss'],
 })
 export class CountDownComponent implements OnInit {
-
   pausedAtCounter: number[] = [];
   interval: any;
   counterValue: any;
@@ -15,48 +13,78 @@ export class CountDownComponent implements OnInit {
   startCounter: number = 0;
   pauseCounter: number = 0;
   currDateTime: any[] = [];
+  liveCounterValue: any;
+
 
   constructor() {}
 
   ngOnInit(): void {}
 
   setLimitValue(args: any) {
+    if (!args) {
+      this.counterValue = 0;
+      this.liveCounterValue = 0;
+      this.pausedAtCounter = [];
+      return;
+    }
     if (this.pauseStatus) {
       this.pausedAtCounter.push(this.counterValue);
       this.pauseTimer();
       return;
     }
     this.counterValue = args;
+
+    if (!this.liveCounterValue) {
+      this.liveCounterValue = args;
+    }
     this.startTimer();
   }
 
-  setPauseStatus(args: any) {
+  setPauseStatus(args: any): void {
     this.pauseStatus = args;
   }
 
-  startTimer() {
+  startTimer(): void {
     this.interval = setInterval(() => {
-      if (this.counterValue > 0) {
-        this.counterValue--;
+      if (this.liveCounterValue > 0) {
+        this.liveCounterValue--;
       } else {
-        this.counterValue = 0;
+        this.liveCounterValue = 0;
       }
     }, 1000);
   }
 
-  pauseTimer() {
+  pauseTimer(): void {
     clearInterval(this.interval);
   }
 
-  setStartCount(args: any) {
-    this.startCounter = args;
+  setStartCount(args: any): void {
+    if (this.checkIfCounterValueExist()) {
+      this.startCounter = args;
+    }
   }
 
-  setPauseCount(args: any) {
-    this.pauseCounter = args;
+  setPauseCount(args: any): void {
+    if (this.checkIfCounterValueExist()) {
+      this.pauseCounter = args;
+    }
   }
 
-  logDateTime(args: any) {
-    this.currDateTime.push(args);
+  logDateTime(args: any): void {
+    if (Object.keys(args).length < 1) {
+      this.currDateTime = [];
+    }
+    if (this.checkIfCounterValueExist()) {
+      this.currDateTime.push(args);
+    }
+  }
+
+  checkIfCounterValueExist(): boolean {
+    if (!this.counterValue) {
+      this.startCounter = 0;
+      this.pauseCounter = 0;
+      return false;
+    }
+    return true;
   }
 }

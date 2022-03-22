@@ -6,7 +6,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./click-counter.component.scss'],
 })
 export class ClickCounterComponent implements OnInit {
-
   startCounter: number = 0;
   pauseCounter: number = 0;
   @Input() startClickCount: number | undefined;
