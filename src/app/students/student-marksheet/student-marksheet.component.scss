@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+table {
+  border-collapse: collapse;
+}
+
+head {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+.table .thead-dark th {
+  color: #fff;
+  background-color: #212529;
+  border-color: #32383e;
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+  cursor: pointer;
+}
+
+.table td, .table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}

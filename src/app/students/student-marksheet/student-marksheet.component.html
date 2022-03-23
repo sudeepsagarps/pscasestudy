@@ -1,1 +1,37 @@
-<p>student-marksheet works!</p>
+<div class="container">
+  <div class="row">
+    <div class="table-responsive-md">
+      <table class="table table-sortable studentTable">
+        <thead class="thead-dark">
+          <tr>
+            <th (click)="sortColumn(headerValue, sortDirection)"
+              [ngClass]="{'active': sortableColumn[headerValue].active === true}" data-dir="{{ sortDirection }}"
+              scope="col" class="text-capitalize" *ngFor="let headerValue of headers">{{
+              headerValue }} &nbsp;
+              <ng-container *ngIf="sortableColumn[headerValue].dir === 0; else sorted">
+                <fa-icon [icon]="['fas', 'sort']"></fa-icon>
+                </ng-container>
+                <ng-template #sorted>
+                  <fa-icon [icon]="sortableColumn[headerValue].dir === 1 ? ['fas', 'sort-up'] : ['fas', 'sort-down']">
+                  </fa-icon>
+                </ng-template>
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngIf="sortableStudentDetail && sortableStudentDetail.length > 0">
+          <tr *ngFor="let item of sortableStudentDetail">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.gender}}</td>
+            <td>{{item.class}}</td>
+            <td>{{item.section}}</td>
+            <td>{{item.english}}</td>
+            <td>{{item.hindi}}</td>
+            <td>{{item.maths}}</td>
+            <td>{{item.science}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
