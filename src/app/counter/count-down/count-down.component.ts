@@ -25,10 +25,6 @@ export class CountDownComponent implements OnInit {
       this.counterValue = 0;
       this.liveCounterValue = 0;
       this.pausedAtCounter = [];
-      return;
-    }
-    if (this.pauseStatus) {
-      this.pausedAtCounter.push(this.counterValue);
       this.pauseTimer();
       return;
     }
@@ -36,6 +32,11 @@ export class CountDownComponent implements OnInit {
 
     if (!this.liveCounterValue) {
       this.liveCounterValue = args;
+    }
+    if (this.pauseStatus) {
+      this.pausedAtCounter.push(this.liveCounterValue);
+      this.pauseTimer();
+      return;
     }
     this.startTimer();
   }

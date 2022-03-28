@@ -1,0 +1,17 @@
+.cont-height {
+  margin: 15px;
+  padding: 15px;
+}
+
+.dynamicDiv {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #40da25;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 15px;
+  margin: 15px auto;
+  flex: 2 2 20em;
+  flex-direction: column;
+}

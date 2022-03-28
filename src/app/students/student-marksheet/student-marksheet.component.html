@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="table-responsive-md">
-      <table class="table table-sortable studentTable">
-        <thead class="thead-dark">
+      <table class="table table table-hover table-sortable studentTable mt-3">
+        <thead class="thead-light">
           <tr>
             <th (click)="sortColumn(headerValue, sortDirection)"
               [ngClass]="{'active': sortableColumn[headerValue].active === true}" data-dir="{{ sortDirection }}"

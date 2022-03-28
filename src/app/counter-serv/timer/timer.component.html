@@ -2,8 +2,8 @@
   <label class="p-2">Enter Timer limit</label>
   <input class="inputLimit" type="number" #counterVal [(ngModel)]="counter" />
   <div class="d-grid gap-2 d-md-block text-end">
-    <button type="button" class="btn btn-primary" [disabled]="!counterVal.value"
-      (click)="toggleLimit()">Start/Pause</button>
+    <button type="button" class="btn btn-primary" [disabled]="!counterVal.value" (click)="toggleLimit()">{{
+      counterBtnLabel }}</button>
     <button class="btn btn-secondary" type="reset" [disabled]="!counterVal.value" (click)="reset()">Reset</button>
   </div>
 

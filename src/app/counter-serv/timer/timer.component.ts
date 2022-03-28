@@ -14,6 +14,7 @@ export class TimerComponent {
   startClickCounter: number = 0;
   pauseClickCounter: number = 0;
   pausedAtList = this.counterService.pausedAtSubject;
+  counterBtnLabel: string = 'Start';
 
   constructor(private counterService: CounterService) {}
 
@@ -26,6 +27,7 @@ export class TimerComponent {
     this.isPaused = !this.isPaused;
 
     if (this.isPaused) {
+      this.counterBtnLabel = 'Start';
       this.pauseClickCounter++;
       this.counterService.logCurrentDateTime({
         label: 'Paused at',
@@ -33,6 +35,7 @@ export class TimerComponent {
       });
       this.counterService.pauseCountClick(this.pauseClickCounter);
     } else {
+      this.counterBtnLabel = 'Pause';
       this.startClickCounter++;
       this.counterService.logCurrentDateTime({
         label: 'Started at',
@@ -51,6 +54,7 @@ export class TimerComponent {
     this.startClickCounter = 0;
     this.pauseClickCounter = 0;
     this.isPaused = true;
+    this.counterBtnLabel = 'Start';
     this.counterService.updateCounterValue(0);
     this.counterService.setPauseSatus(false);
     this.counterService.pauseCountClick(0);

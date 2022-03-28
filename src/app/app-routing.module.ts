@@ -33,6 +33,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'div-creator',
+    loadChildren: () =>
+      import('./div-creator/dynamic-div.module').then(
+        (x) => x.DynamicDivModule
+      ),
+  },
+  {
     path: '',
     redirectTo: '/banners',
     pathMatch: 'full',

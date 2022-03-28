@@ -20,6 +20,7 @@ export class TimerComponent {
   isPaused: boolean = false;
   startClickCounter: number = 0;
   pauseClickCounter: number = 0;
+  counterBtnLabel: string = 'Start';
 
   constructor() {}
 
@@ -30,12 +31,13 @@ export class TimerComponent {
   toggleLimit(): void {
     this.counterValue.emit(this.counter);
     this.isPaused = !this.isPaused;
-
     if (!this.isPaused) {
+      this.counterBtnLabel = 'Start';
       this.pauseClickCounter++;
       this.logCurrDateTime.emit({ label: 'Paused at', value: new Date() });
       this.pauseCountClick.emit(this.pauseClickCounter);
     } else {
+      this.counterBtnLabel = 'Pause';
       this.startClickCounter++;
       this.logCurrDateTime.emit({ label: 'Started at', value: new Date() });
       this.startCountClick.emit(this.startClickCounter);
@@ -51,6 +53,9 @@ export class TimerComponent {
     this.counter = undefined;
     this.startClickCounter = 0;
     this.pauseClickCounter = 0;
+    this.counterBtnLabel = 'Start';
+    this.isPaused = false;
+    this.pauseStatus.emit(false);
     this.counterValue.emit(0);
     this.startCountClick.emit(0);
     this.pauseCountClick.emit(0);

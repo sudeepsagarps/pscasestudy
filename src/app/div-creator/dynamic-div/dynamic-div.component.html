@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="cont-height" (scroll)="onScroll()" #scrollframe>
+    <div *ngFor=" let item of divElements; index as i" class="dynamicDiv" #itemframe>
+    <label class="label">{{ i+1 }} </label>
+      <button type="button" class="btn btn-success" title="createDiv" (click)="sayHi(i+1)">Click me</button>
+    </div>
+  </div>
+</div>
