@@ -1,6 +1,6 @@
 <div class="setTimer">
-  <label class="p-2">Enter Timer limit</label>
-  <input class="inputLimit" type="number" #counterVal [(ngModel)]="counter" />
+  <label for="timerLimit" class="p-2">Enter Timer limit</label>
+  <input class="inputLimit" type="number" #counterVal [(ngModel)]="counter" id="timerLimit" />
   <div class="d-grid gap-2 d-md-block text-end">
     <button type="button" class="btn btn-primary" [disabled]="!counterVal.value" (click)="toggleLimit()">{{
       counterBtnLabel }}</button>
@@ -8,8 +8,8 @@
   </div>
 
   <div class="pauseStats text-start" *ngFor="let item of pausedAtList | async">
-    <label>Paused at
-      <span>{{ item }}</span>
+    <label for="pausedTime">Paused at
+      <span id="pausedTime">{{ item }}</span>
     </label>
   </div>
 </div>
